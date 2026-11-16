@@ -44,6 +44,7 @@ void ind() {
     printf("    kph    kilometers per hour to miles per hour\n");
     printf("    hx     Decimal to hexadecimal one byte limit.\n");
     printf("    hxl    Larger decimal to hexadecimal numbers.\n");
+    printf("    cx     Character to hexadecimal\n");
     printf("    lm     light years to miles precise.\n");
     printf("    lmb    Light years to miles basic. Works with all compilers.\n");
     printf("    lc     license\n");
@@ -547,6 +548,33 @@ void largerDecimalToHexadecimalNumbers() {
     }
 }
 
+void charHex() {
+    char n [3];
+    printf("Enter a character xx to exit.\n");
+    while(1) {
+        if(fgets(n,sizeof(n),stdin) == NULL) {
+            clearerr(stdin);
+            printf("\nInvalid input.\n\n");
+            continue;
+        }
+        n[strcspn(n,"\n")]=0;
+        if(strlen(n) >=2) {
+            flush();
+        }
+        if(strcmp(n,"xx")==0){
+            break;
+        } else if(strlen(n) == 0) {
+            printf("\nEnter a character only.\n\n");
+            continue;
+        } else if (strlen(n) >1) {
+            printf("\nEnter no more than one character.\n\n");
+            continue;
+        }  
+        unsigned char result = n[0];
+        printf("0x%02x\n",result); 
+    }
+}
+
 void lightYearsToMilesPrecise() {
     char light_years [SIZE];
     char *ptr;
@@ -663,6 +691,7 @@ int main() {
         {"kph",   kilometersPerHourToMilesPerHour},
         {"hx",   decimalToHexadecimalOneByteLimit},
         {"hxl", largerDecimalToHexadecimalNumbers},
+        {"cx",                            charHex},
         {"lm",           lightYearsToMilesPrecise}, 
         {"lmb",            lightYearsToMilesBasic},
         {"lc",                            license},
@@ -684,7 +713,7 @@ int main() {
                 break;
             } 
             int index = -1;
-            for(int i = 0; i<18;i++) {
+            for(int i = 0; i<19;i++) {
                 if(strcmp(sw, m1[i].keys)==0){
                     index = i;
                 }
