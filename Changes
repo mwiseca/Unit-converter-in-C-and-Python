@@ -34,6 +34,6 @@ April 28 2026.
 ConvertWeightsSpeedstruct.c was added. It uses a struct to make a simple map.
 This one will get any new features going forward.
 May 30 2026. 
-A character to hexadecimal feature was added.
+A character to hexadecimal feature was added to Unit converter.c only.
 Check cx in index.
 November 16 2026.
