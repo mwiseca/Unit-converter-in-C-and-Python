@@ -44,7 +44,7 @@ void ind() {
     printf("    kph    kilometers per hour to miles per hour\n");
     printf("    hx     Decimal to hexadecimal one byte limit.\n");
     printf("    hxl    Larger decimal to hexadecimal numbers.\n");
-    printf("    cx     Character to hexadecimal\n");
+    printf("    cx     Character to hexadecimal one byte max.\n");
     printf("    lm     light years to miles precise.\n");
     printf("    lmb    Light years to miles basic. Works with all compilers.\n");
     printf("    lc     license\n");
@@ -550,7 +550,7 @@ void largerDecimalToHexadecimalNumbers() {
 
 void charHex() {
     char n [3];
-    printf("Enter a character xx to exit.\n");
+    printf("Enter a character (one byte max), or xx to exit.\n");
     while(1) {
         if(fgets(n,sizeof(n),stdin) == NULL) {
             clearerr(stdin);
